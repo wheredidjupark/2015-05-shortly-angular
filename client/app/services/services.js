@@ -8,10 +8,15 @@ angular.module('shortly.services', [])
     });
   };
 
+  var addLink = function(link){
+    return $http.post("/api/links", link);
+  };
 
   return {
-    getLinks: getLinks 
+    getLinks: getLinks,
+    addLink: addLink
      };
+
 
 })
 .factory('Auth', function ($http, $location, $window) {
