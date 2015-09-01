@@ -7,6 +7,8 @@
         $scope.getLinks = function() {
         	Links.getLinks().then(function(links){
         		$scope.data.links = links;
+        	}, function(error){
+        		console.error(error);
         	});
         };
         
