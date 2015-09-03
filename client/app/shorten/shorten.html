@@ -2,8 +2,8 @@
 <!-- Your code here -->
 <a href="/#/links">To Links</a>
 
-    <form ng-submit="addLink(link)">
-        <input type="text" name="" id="" placeholder="url(ex: www.nytimes.com/q82reds72)" novalidate>
+    <form ng-submit="addLink()">
+        <input type="text" name="" id="" placeholder="url(ex: www.nytimes.com/q82reds72)" novalidate ng-model="link.url">
         <input type="submit">
     </form>
 </div>
