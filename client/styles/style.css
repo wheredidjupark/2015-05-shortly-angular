@@ -146,3 +146,14 @@ input[type=url]:focus {
   clear: both;
 }
 
+.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+.ng-valid{
+  border-color: green;
+}
+
+.navigation {
+  display: inline-block;
+}
