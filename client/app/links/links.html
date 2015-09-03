@@ -1,11 +1,30 @@
 <div id='container'>
     <!-- Your html here -->
-    <div ng-repeat="link in data.links">
-        <a ng-href="{{link.base_url}}/api/links/{{link.code}}"><img ng-src="../../assets/redirect_icon.png" alt="">
-            <p>{{link.title}}</p>
-            <p>{{link.base_url + "/" + link.code}}</p>
-            <p>{{link.url}}</p>
-            <div>{{link.visits}}</div>
+    <!--  <div ng-repeat="link in data.links" class="link">
+        <a ng-href="{{link.base_url}}/api/links/{{link.code}}">
+        <img ng-src="../../assets/redirect_icon.png" alt="">
+            <div class="info">
+                <div class="title">{{link.title}}</div>
+                <div>{{link.base_url + "/" + link.code}}</div>
+                <div class="original">{{link.url}}</div>
+                <div class="visits">
+                    <span class="count">{{link.visits}}</span>
+                </div>
+            </div>
         </a>
+    </div> -->
+    <input type='text' ng-model='search' placeholder='filter' />
+    <div class="links">
+        <div class="link" ng-repeat="link in data.links | filter:search | orderBy:'created_at'">
+            <img src="assets/redirect_icon.png">
+            <div class="info">
+                <div class="visits">
+                    <span class="count">{{ link.visits }}</span>Visits
+                </div>
+                <div class="title">{{ link.title }}</div>
+                <div class="original">{{ link.url }}</div>
+                <a href="{{link.base_url}}/api/links/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a>
+            </div>
+        </div>
     </div>
 </div>
